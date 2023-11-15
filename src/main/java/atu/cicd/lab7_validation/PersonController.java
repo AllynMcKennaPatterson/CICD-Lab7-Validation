@@ -20,6 +20,10 @@ public class PersonController {
         System.out.println("Person created: " + person);
         return "Person added:" + person;
     }
+    @PostMapping("/savePerson")
+    public void savePerson(@Valid @RequestBody Person person) {
+        personService.savePerson(person);
+    }
 
     @GetMapping("/{employeeId}")
     public ResponseEntity<?> getPerson(@PathVariable String employeeId) {
