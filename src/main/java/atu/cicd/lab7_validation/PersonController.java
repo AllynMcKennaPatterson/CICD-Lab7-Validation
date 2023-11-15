@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PersonController {
+    private PersonService personService;
 
+    public PersonController(PersonService personService){
+        this.personService = personService;
+    }
 
     @PostMapping("createPerson")
     public String addPerson(@Valid @RequestBody Person person, BindingResult bindingResult){
